@@ -1,0 +1,6 @@
+{
+  "name": "captains-log-api",
+  "stage": "dev",
+  "region": "eu-west-1",
+  "lint": true
+}
