@@ -13,7 +13,7 @@ export async function main(event) {
     TableName: process.env.tableName,
     // Get the row where the entryId is the one in the path
     Key: {
-      userId: "123",
+      userId: event.requestContext.authorizer.jwt.claims.sub,
       entryId: event.pathParameters.id,
     },
   };

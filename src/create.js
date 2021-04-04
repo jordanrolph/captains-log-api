@@ -16,7 +16,7 @@ export async function main(event) {
     // Get the table name from the environment variable
     TableName: process.env.tableName,
     Item: {
-      userId: "123", // TODO - replace with authenticated user's ID
+      userId: event.requestContext.authorizer.jwt.claims.sub,
       entryId: data.entryId, // an ISO date (user can only have one entry per day)
       content: data.content,
       createdAt: Date.now(),

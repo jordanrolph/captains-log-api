@@ -15,7 +15,7 @@ export async function main(event) {
     TableName: process.env.tableName,
     // Get the row where the entryId equals the one in the path e.g. /entries/{id}
     Key: {
-      userId: "123", // TODO - replace with authenticated user's ID
+      userId: event.requestContext.authorizer.jwt.claims.sub,
       entryId: event.pathParameters.id,
     },
     // Update the "content" column with the one passed in
